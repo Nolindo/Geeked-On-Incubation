@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Coding.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <img src="~/Uploads/@item.FileName"
+                 width="250"
+                 height="200"
+                 class="img-thumbnail" />
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ImageId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ImageId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageId })
+            </td>
+        </tr>
+    }
+
+</table>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+
+        @TempData["Success"]
+
+    </div>
+}

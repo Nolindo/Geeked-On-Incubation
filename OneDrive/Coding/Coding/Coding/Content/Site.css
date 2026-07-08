@@ -1,0 +1,49 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.gallery-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+    .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,.25);
+    }
+
+.gallery-image {
+    height: 260px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.gallery-card:hover .gallery-image {
+    transform: scale(1.08);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    min-height: 50px;
+}
